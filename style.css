@@ -385,7 +385,7 @@ h6,
 
 
 .padding-medium {
-    padding-top: 9rem;
+    padding-top: 5rem;
     padding-bottom: 9rem;
 }
 
@@ -511,7 +511,6 @@ iconify-icon.social-icon {
 #about .about-img{
     margin-left: -80px;
 }
-
 /* --- Testimonials Section --- */
 #testimonials {
     background-color: #f8f9fa; /* Light gray background */
