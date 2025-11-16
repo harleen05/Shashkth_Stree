@@ -227,10 +227,16 @@ body {
 }
 
 
-.col{
+/* .col{
     width: 250px;
     height: 250px;
+} */
+/* Force 2 cards per row ONLY inside Our Aim & Mission */
+.our-mission .col {
+    flex: 0 0 calc(50% - 30px); /* 2 per row */
+    max-width: calc(50% - 30px);
 }
+
 .our-aim{
     margin-left: 40px;
     margin-right: 40px;
