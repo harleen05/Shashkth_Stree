@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mental Health Check — Quiz</title>
+     <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="back">
+      <button id="backBtn">
+        <a href="../consent.html">← Back</a>
+      </button>
+    </div>
+    <div class="wrap">
+      <div id="quizCard" class="quiz-card" aria-live="polite">
+        <h1>Mental Health Self-Check</h1>
+        <div class="subtitle">
+          20 quick questions — your answers stay only on your device.
+        </div>
+
+        <div class="progress-wrap" aria-hidden="true">
+          <div id="progress" class="progress"></div>
+        </div>
+
+        <div id="questionArea"></div>
+
+        <div class="nav" style="margin-top: 18px">
+          <button id="prevBtn" class="btn ghost" onclick="prevQuestion()">
+            ← Previous
+          </button>
+          <div style="display: flex; gap: 8px">
+            <!-- <button
+              id="speakBtn"
+              class="btn ghost"
+              title="Read aloud"
+              onclick="speakCurrent()"
+            >
+              🔊 Read
+            </button> -->
+            <button id="nextBtn" class="btn" onclick="nextQuestion()">
+              Next →
+            </button>
+            <button id="submitBtn" class="btn hidden" onclick="submitQuiz()">
+              Submit ✓
+            </button>
+          </div>
+        </div>
+
+        <div
+          id="savedMessage"
+          style="margin-top: 12px; color: var(--muted); font-size: 13px"
+        ></div>
+      </div>
+
+      <div id="resultPanel" style="display: none; margin-top: 18px"></div>
+
+      <div id="historyPanel" style="margin-top: 12px"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
