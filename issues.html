@@ -1,487 +1,886 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shashkth Stree - Issues</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+    />
+
+    <link rel="stylesheet" type="text/css" href="style_issue.css" />
+    <link rel="stylesheet" type="text/css" href="css/vendor.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/favicon/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="images/favicon/favicon_io/site.webmanifest" />
+
+    <style>
+      .col-md-4,
+      .video-player,
+      .swiper-slide {
+        transition: transform 0.3s ease;
+      }
+      .col-md-4:hover,
+      .video-player:hover,
+      .swiper-slide:hover {
+        transform: scale(1.1);
+      }
+      /* Language Toggle Switch */
+      .lang-toggle-container {
+        display: flex;
+        align-items: center;
+        background: #fff;
+        border-radius: 25px;
+        padding: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        margin-left: 15px; /* Added margin for spacing in navbar */
+      }
+      .lang-toggle-label {
+        margin: 0 5px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+        user-select: none;
+      }
+      .lang-toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+      }
+      .lang-toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .lang-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 34px;
+      }
+      .lang-slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+      input:checked + .lang-slider {
+        background-color: #e5b8f4;
+      }
+      input:checked + .lang-slider:before {
+        transform: translateX(26px);
+      }
+    </style>
+    <!-- Floating Help Component -->
+    <link rel="stylesheet" href="css/floating_help.css" />
+    <script src="js/floating_help.js" defer></script>
     
-    
-
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-
-    <link rel="stylesheet" type="text/css" href="style_issue.css">
-    <link rel="stylesheet" type="text/css" href="css/vendor.css">
-
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/favicon_io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon_io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon_io/favicon-16x16.png">
-<link rel="manifest" href="images/favicon/favicon_io/site.webmanifest">
-
-<style>
-    .col-md-4,.video-player,.swiper-slide{
-            transition: transform 0.3s ease;
-        }
-        .col-md-4:hover,.video-player:hover,.swiper-slide:hover{
-            transform: scale(1.1);
-        }
-/* Language Toggle Switch */
-.lang-toggle-container {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  border-radius: 25px;
-  padding: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  margin-left: 15px; /* Added margin for spacing in navbar */
-}
-.lang-toggle-label {
-  margin: 0 5px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #333;
-  cursor: pointer;
-  user-select: none;
-}
-.lang-toggle-switch {
+    <style>
+      .tooltip-parent {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 24px;
 }
-.lang-toggle-switch input {
+
+/* Hidden tooltip box */
+.tooltip-text {
+  visibility: hidden;
   opacity: 0;
-  width: 0;
-  height: 0;
-}
-.lang-slider {
   position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
-  border-radius: 34px;
+  bottom: 140%; /* position above the title */
+  left: 50%;
+  transform: translateX(-50%);
+  
+  background: rgb(205, 133, 221); /* your purple theme */
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  white-space: normal;
+  width: 300px;
+  text-align: center;
+  line-height: 1.4;
+  
+  z-index: 999;
+  transition: opacity 0.3s ease;
 }
-.lang-slider:before {
-  position: absolute;
+
+/* Tooltip arrow */
+.tooltip-text::after {
   content: "";
-  height: 16px;
-  width: 16px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: .4s;
-  border-radius: 50%;
-}
-input:checked + .lang-slider {
-  background-color: #E5B8F4;
-}
-input:checked + .lang-slider:before {
-  transform: translateX(26px);
-}
-</style>
-<!-- Floating Help Component -->
-<link rel="stylesheet" href="css/floating_help.css">
-<script src="js/floating_help.js" defer></script>
-</head>
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
 
-<body>
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgb(205, 133, 221) transparent transparent transparent;
+}
 
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-        <symbol id="search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-            <title>Search</title>
-            <path fill="currentColor"
-                d="M19 3C13.488 3 9 7.488 9 13c0 2.395.84 4.59 2.25 6.313L3.281 27.28l1.439 1.44l7.968-7.969A9.922 9.922 0 0 0 19 23c5.512 0 10-4.488 10-10S24.512 3 19 3zm0 2c4.43 0 8 3.57 8 8s-3.57 8-8 8s-8-3.57-8-8s3.57-8 8-8z" />
-        </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" id="play" viewBox="0 0 512 512">
-            <path fill="white" d="M0 256a256 256 0 1 1 512 0a256 256 0 1 1-512 0m188.3-108.9c-7.6 4.2-12.3 12.3-12.3 20.9v176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z" />
-        </symbol>
+/* Show the tooltip on hover */
+.tooltip-parent:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+    </style>
+  </head>
+
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+      <symbol
+        id="search"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+      >
+        <title>Search</title>
+        <path
+          fill="currentColor"
+          d="M19 3C13.488 3 9 7.488 9 13c0 2.395.84 4.59 2.25 6.313L3.281 27.28l1.439 1.44l7.968-7.969A9.922 9.922 0 0 0 19 23c5.512 0 10-4.488 10-10S24.512 3 19 3zm0 2c4.43 0 8 3.57 8 8s-3.57 8-8 8s-8-3.57-8-8s3.57-8 8-8z"
+        />
+      </symbol>
+      <symbol
+        xmlns="http://www.w3.org/2000/svg"
+        id="play"
+        viewBox="0 0 512 512"
+      >
+        <path
+          fill="white"
+          d="M0 256a256 256 0 1 1 512 0a256 256 0 1 1-512 0m188.3-108.9c-7.6 4.2-12.3 12.3-12.3 20.9v176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"
+        />
+      </symbol>
     </svg>
     <div class="custom-bg p-3"></div>
 
     <div class="search-popup">
-        <div class="search-popup-container">
+      <div class="search-popup-container">
+        <form role="search" method="get" class="form-group" action="index.html">
+          <input
+            type="search"
+            id="search-form"
+            class="form-control border-0 border-bottom lang-toggle-placeholder"
+            placeholder="Type and press enter"
+            value=""
+            name="s"
+            data-en="Type and press enter"
+            data-hi="[टाइप करें और एंटर दबाएं]"
+          />
+          <button
+            type="submit"
+            class="search-submit border-0 position-absolute bg-white"
+            style="top: 15px; right: 15px"
+          >
+            <svg class="search" width="24" height="24">
+              <use xlink:href="#search"></use>
+            </svg>
+          </button>
+        </form>
 
-            <form role="search" method="get" class="form-group" action="index.html">
-                <input type="search" id="search-form" class="form-control border-0 border-bottom lang-toggle-placeholder"
-                    placeholder="Type and press enter" value="" name="s" data-en="Type and press enter" data-hi="[टाइप करें और एंटर दबाएं]">
-                <button type="submit" class="search-submit border-0 position-absolute bg-white"
-                    style="top: 15px;right: 15px;"><svg class="search" width="24" height="24">
-                        <use xlink:href="#search"></use>
-                    </svg></button>
-            </form>
+        <h5 class="cat-list-title">
+          <span
+            class="lang-toggle"
+            data-en="Browse Categories"
+            data-hi="[श्रेणियां ब्राउज़ करें]"
+            >Browse Categories</span
+          >
+        </h5>
 
-            <h5 class="cat-list-title"><span class="lang-toggle" data-en="Browse Categories" data-hi="[श्रेणियां ब्राउज़ करें]">Browse Categories</span></h5>
-
-            <ul class="cat-list">
-                <li class="cat-list-item">
-                    <a href="#" title="Travel"><span class="lang-toggle" data-en="Travel" data-hi="[यात्रा]">Travel</span></a>
-                </li>
-                <li class="cat-list-item">
-                    <a href="#" title="Relationships"><span class="lang-toggle" data-en="Relationships" data-hi="[रिश्ते]">Relationships</span></a>
-                </li>
-                <li class="cat-list-item">
-                    <a href="#" title="Skin Care"><span class="lang-toggle" data-en="Skin Care" data-hi="[त्वचा की देखभाल]">Skin Care</span></a>
-                </li>
-                <li class="cat-list-item">
-                    <a href="#" title="Health"><span class="lang-toggle" data-en="Health" data-hi="[स्वास्थ्य]">Health</span></a>
-                </li>
-                <li class="cat-list-item">
-                    <a href="#" title="Spa"><span class="lang-toggle" data-en="Spa" data-hi="[स्पा]">Spa</span></a>
-                </li>
-                <li class="cat-list-item">
-                    <a href="#" title="Meditation"><span class="lang-toggle" data-en="Meditation" data-hi="[ध्यान]">Meditation</span></a>
-                </li>
-                <li class="cat-list-item">
-                    <a href="#" title="Healing"><span class="lang-toggle" data-en="Healing" data-hi="[उपचार]">Healing</span></a>
-                </li>
-            </ul>
-
-        </div>
+        <ul class="cat-list">
+          <li class="cat-list-item">
+            <a href="#" title="Travel"
+              ><span class="lang-toggle" data-en="Travel" data-hi="[यात्रा]"
+                >Travel</span
+              ></a
+            >
+          </li>
+          <li class="cat-list-item">
+            <a href="#" title="Relationships"
+              ><span
+                class="lang-toggle"
+                data-en="Relationships"
+                data-hi="[रिश्ते]"
+                >Relationships</span
+              ></a
+            >
+          </li>
+          <li class="cat-list-item">
+            <a href="#" title="Skin Care"
+              ><span
+                class="lang-toggle"
+                data-en="Skin Care"
+                data-hi="[त्वचा की देखभाल]"
+                >Skin Care</span
+              ></a
+            >
+          </li>
+          <li class="cat-list-item">
+            <a href="#" title="Health"
+              ><span class="lang-toggle" data-en="Health" data-hi="[स्वास्थ्य]"
+                >Health</span
+              ></a
+            >
+          </li>
+          <li class="cat-list-item">
+            <a href="#" title="Spa"
+              ><span class="lang-toggle" data-en="Spa" data-hi="[स्पा]"
+                >Spa</span
+              ></a
+            >
+          </li>
+          <li class="cat-list-item">
+            <a href="#" title="Meditation"
+              ><span class="lang-toggle" data-en="Meditation" data-hi="[ध्यान]"
+                >Meditation</span
+              ></a
+            >
+          </li>
+          <li class="cat-list-item">
+            <a href="#" title="Healing"
+              ><span class="lang-toggle" data-en="Healing" data-hi="[उपचार]"
+                >Healing</span
+              ></a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
 
     <div id="navbar-container"></div>
 
-     <!-- <nav class="navbar fixed-top navbar-expand-lg container-fluid p-4">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img src="images/main-logo-light.png" alt="logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar">
-                <iconify-icon icon="system-uicons:menu-hamburger" class="hamburger-menu"></iconify-icon>
-            </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel"><span class="lang-toggle" data-en="Menu" data-hi="[मेन्यू]">Menu</span></h5>
-                    <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul
-                        class="navbar-nav align-items-center justify-content-end justify-content-xxl-center flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link text-uppercase active mx-2 px-3 mb-2 mb-lg-0"
-                                aria-current="page" href="index.html"><span class="lang-toggle" data-en="Home" data-hi="[मुखपृष्ठ]">Home</span></a>
-                        </li>
-                     
-                        <li class="nav-item">
-                            <a class="nav-link text-uppercase  mx-2 px-3 mb-2 mb-lg-0" href="therapy.html"><span class="lang-toggle" data-en="Therapy" data-hi="[थेरेपी]">Therapy</span></a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-uppercase  mx-2 px-3 mb-2 mb-lg-0"
-                                href="https://contact-page-shashkth-stree.vercel.app/"><span class="lang-toggle" data-en="Contact" data-hi="[संपर्क]">Contact</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-uppercase  mx-2 px-3 mb-2 mb-lg-0" href="fundraising.html"><span class="lang-toggle" data-en="Fundraising" data-hi="[धन उगाही]">Fundraising</span></a>
-                        </li>
-                        <li class="nav-item">
-                          <div class="lang-toggle-container">
-                            <label for="lang-toggle-checkbox" class="lang-toggle-label">EN</label>
-                            <label class="lang-toggle-switch">
-                              <input type="checkbox" id="lang-toggle-checkbox">
-                              <span class="lang-slider"></span>
-                            </label>
-                            <label for="lang-toggle-checkbox" class="lang-toggle-label">HI</label>
-                          </div>
-                        </li>
-
-                    </ul>
-
-                </div>
+    <section
+      id="hero"
+      class="d-flex align-items-center"
+      style="
+        background-image: url(images/banner_issues.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+      "
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            <div class="text-center pt-5">
+              <p class="header-top text-white mb-4"></p>
+              <h1 class="display-1 text-white mb-5">
+                <span
+                  class="lang-toggle"
+                  data-en="Educate and inspire, take her higher"
+                  data-hi="[शिक्षित करें और प्रेरित करें, उसे ऊंचा उठाएं]"
+                  >Educate and inspire, take her higher</span
+                >
+              </h1>
             </div>
-        </div>
-    </nav> -->
-
-    <section id="hero" class="d-flex align-items-center" style="background-image:url(images/banner_issues.jpg); background-repeat: no-repeat; background-size: cover; background-position: center; height: 100vh;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 offset-md-1">
-                    <div class="text-center pt-5">
-                        <p class="header-top text-white mb-4"></p>
-                        <h1 class="display-1 text-white mb-5"><span class="lang-toggle" data-en="Educate and inspire, take her higher" data-hi="[शिक्षित करें और प्रेरित करें, उसे ऊंचा उठाएं]">Educate and inspire, take her higher</span></h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   
-    <section id="posts" class="padding-medium bg-secondary" style="background-image:url(images/bg.jpg); background-repeat: no-repeat; background-size: cover; background-position: center; height: 150vh;">
-        <div class="container">
-            <div class="popular-stories">
-                <h2 class="display-2 text-primary text-capitalize mb-4 text-center" style="color: white !important;"><span class="lang-toggle" data-en="Explore" data-hi="[अन्वेषण करें]">Explore</span></h2>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card rounded-5 border-0" style="background-color: #E5B8F4 !important;">
-                            <img src="images/pos1.jpg" class="img-fluid card-img-top" alt="posts">
-                            <div class="card-body">
-                                <a href="Cyberbullying.html" class="text-uppercase text-primary fw-light"><span class="lang-toggle" data-en="Cyber Bullying" data-hi="[साइबर बुलिंग]">Cyber Bullying</span></a>
-                                <h5 class="card-title mt-2"><a href="Cyberbullying.html"><span class="lang-toggle" data-en="Stay Safe, Stay Smart Online" data-hi="[सुरक्षित रहें, ऑनलाइन स्मार्ट रहें]">Stay Safe, Stay Smart Online</span></a></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card rounded-5 border-0" style="background-color: #E5B8F4 !important;">
-                            <img src="images/pos2.jpg" class="img-fluid card-img-top" alt="posts">
-                            <div class="card-body">
-                                <a href="mental-abuse.html" class="text-uppercase text-primary fw-light"><span class="lang-toggle" data-en="Mental Abuse" data-hi="[मानसिक शोषण]">Mental Abuse</span></a>
-                                <h5 class="card-title mt-2"><a href="mental-abuse.html"><span class="lang-toggle" data-en="Empower Yourself, Know the Signs" data-hi="[खुद को सशक्त बनाएं, संकेतों को जानें]">Empower Yourself, Know the Signs</span></a></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card rounded-5 border-0" style="background-color: #E5B8F4 !important;">
-                            <img src="images/pos3.jpg" class="img-fluid card-img-top" alt="posts">
-                            <div class="card-body">
-                                <a href="workplace-harrassment.html" class="text-uppercase text-primary fw-light"><span class="lang-toggle" data-en="Workplace Harassment" data-hi="[कार्यस्थल उत्पीड़न]">Workplace Harassment</span></a>
-                                <h5 class="card-title mt-2"><a href="workplace-harrassment.html"><span class="lang-toggle" data-en="Ensure respect" data-hi="[सम्मान सुनिश्चित करें]">Ensure respect</span></a></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card rounded-5 border-0" style="background-color: #E5B8F4 !important;">
-                            <img src="images/pos5.jpg" class="img-fluid card-img-top" alt="posts">
-                            <div class="card-body">
-                                <a href="stress.html" class="text-uppercase text-primary fw-light"><span class="lang-toggle" data-en="Mind & Body Balance" data-hi="[मन और शरीर का संतुलन]">Mind & Body Balance</span></a>
-                                <h5 class="card-title mt-2"><a href="stress.html"><span class="lang-toggle" data-en="Ease your mind with stress-relief tips" data-hi="[तनाव-मुक्ति युक्तियों से अपने मन को शांत करें]">Ease your mind with stress-relief tips</span></a></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card rounded-5 border-0" style="background-color: #E5B8F4 !important;">
-                            <img src="images/pos7.jpg" class="img-fluid card-img-top" alt="posts">
-                            <div class="card-body">
-                                <a href="consent.html" class="text-uppercase text-primary fw-light"><span class="lang-toggle" data-en="Consent and Boundaries" data-hi="[सहमति और सीमाएं]">Consent and Boundaries</span></a>
-                                <h5 class="card-title mt-2"><a href="consent.html"><span class="lang-toggle" data-en="Know, follow, protect" data-hi="[जानें, पालन करें, रक्षा करें]">Know, follow, protect</span></a></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card rounded-5 border-0" style="background-color: #E5B8F4 !important;">
-                            <img src="images/pos8.jpg" class="img-fluid card-img-top" alt="posts">
-                            <div class="card-body">
-                                <a href="couple-therapy.html" class="text-uppercase text-primary fw-light"><span class="lang-toggle" data-en="Couples Therapy" data-hi="[युगल चिकित्सा]">Couples Therapy</span></a>
-                                <h5 class="card-title mt-2"><a href="couple-therapy.html"><span class="lang-toggle" data-en="Reconnect & Strengthen Your Bond" data-hi="[अपने बंधन को फिर से जोड़ें और मजबूत करें]">Reconnect & Strengthen Your Bond</span></a></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-
-   
-
-    <section id="recent-videos" class="padding-medium" style="background-image:url(images/videobackg.jpg); background-repeat: no-repeat; background-size: cover; background-position: center;">
-        <div class="container">
-         <h2 class="display-2 text-primary text-capitalize mb-5 text-center" style="color: white !important;"><span class="lang-toggle" data-en="Inspiring Journeys" data-hi="[प्रेरक यात्राएं]">Inspiring Journeys</span></h2>
-         <div class="row flex-column">
-            <div class="col-md-12">
-              <div class="swiper product-large-slider rounded-4">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="video-player text-center position-relative">
-                        <img src="images/quote1.jpg" alt="product-large" class="img-fluid rounded-4 position-absolute top-0 start-0">
-                        </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="video-player text-center position-relative">
-                        <img src="images/quote2.jpg" alt="product-large" class="img-fluid rounded-4 position-absolute top-0 start-0">
-                        <a type="button" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/W_tIumKa8VY" data-bs-target="#myModal" class="play-btn position-absolute top-0 bottom-0 start-0 end-0">
-                            <svg width="70" height="70">
-                                <use xlink:href="#play"></use>
-                            </svg>
-                        </a>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="video-player text-center position-relative">
-                        <img src="images/quote3.jpg" alt="product-large" class="img-fluid rounded-4 position-absolute top-0 start-0">
-                        <a type="button" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/W_tIumKa8VY" data-bs-target="#myModal" class="play-btn position-absolute top-0 bottom-0 start-0 end-0">
-                            <svg width="70" height="70">
-                                <use xlink:href="#play"></use>
-                            </svg>
-                        </a>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="video-player text-center position-relative">
-                        <img src="images/quote4.jpg" alt="product-large" class="img-fluid rounded-4 position-absolute top-0 start-0">
-                        <a type="button" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/W_tIumKa8VY" data-bs-target="#myModal" class="play-btn position-absolute top-0 bottom-0 start-0 end-0">
-                            <svg width="70" height="70">
-                                <use xlink:href="#play"></use>
-                            </svg>
-                        </a>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="video-player text-center position-relative">
-                        <img src="images/quote5.jpg" alt="product-large" class="img-fluid rounded-4 position-absolute top-0 start-0">
-                        <a type="button" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/W_tIumKa8VY" data-bs-target="#myModal" class="play-btn position-absolute top-0 bottom-0 start-0 end-0">
-                            <svg width="70" height="70">
-                                <use xlink:href="#play"></use>
-                            </svg>
-                        </a>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="video-player text-center position-relative">
-                        <img src="images/quote5.jpg" alt="product-large" class="img-fluid rounded-4 position-absolute top-0 start-0">
-                        <a type="button" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/W_tIumKa8VY" data-bs-target="#myModal" class="play-btn position-absolute top-0 bottom-0 start-0 end-0">
-                            <svg width="70" height="70">
-                                <use xlink:href="#play"></use>
-                            </svg>
-                        </a>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="video-player text-center position-relative">
-                        <img src="images/quote1.jpg" alt="product-large" class="img-fluid rounded-4 position-absolute top-0 start-0">
-                        <a type="button" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/W_tIumKa8VY" data-bs-target="#myModal" class="play-btn position-absolute top-0 bottom-0 start-0 end-0">
-                            <svg width="70" height="70">
-                                <use xlink:href="#play"></use>
-                            </svg>
-                        </a>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-              </div>
-            <div class="col-md-12 mt-3">
-              <div thumbsSlider="" class="swiper rounded-4 product-thumbnail-slider">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <img src="images/quote1.jpg" alt="image" class="thumb-image img-fluid rounded-4">
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="images/quote2.jpg" alt="image" class="thumb-image img-fluid rounded-4">
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="images/quote3.jpg" alt="image" class="thumb-image img-fluid rounded-4">
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="images/quote4.jpg" alt="image" class="thumb-image img-fluid rounded-4">
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="images/quote5.jpg" alt="image" class="thumb-image img-fluid rounded-4">
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="images/quote5.jpg" alt="image" class="thumb-image img-fluid rounded-4">
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="images/quote5.jpg" alt="image" class="thumb-image img-fluid rounded-4">
-                  </div>
-                </div>
-              </div>
-              </div>
-
           </div>
         </div>
+      </div>
     </section>
-  
+
+    <section
+      id="posts"
+      class="padding-medium bg-secondary"
+      style="
+        background-image: url(images/bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 150vh;
+      "
+    >
+      <div class="container">
+        <div class="popular-stories">
+          <h2
+            class="display-2 text-primary text-capitalize mb-4 text-center"
+            style="color: white !important"
+          >
+            <span class="lang-toggle" data-en="Explore" data-hi="[अन्वेषण करें]"
+              >Explore</span
+            >
+          </h2>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div
+                class="card rounded-5 border-0"
+                style="background-color: #e5b8f4 !important"
+              >
+                <img
+                  src="images/pos1.jpg"
+                  class="img-fluid card-img-top"
+                  alt="posts"
+                />
+                <div class="card-body">
+                  <span class="tooltip-parent">
+                    <a href="Cyberbullying.html" class="text-uppercase text-primary fw-light">
+                    <span class="lang-toggle" data-en="Cyber Bullying" data-hi="[साइबर बुलिंग]">Cyber Bullying</span>
+                    </a>
+
+                    <!-- Tooltip must be OUTSIDE the <a> tag -->
+                    <span class="tooltip-text">
+                      Online harassment, threats, or harmful behaviour done through digital platforms.
+                    </span>
+
+                    <h5 class="card-title mt-2">
+                      <a href="Cyberbullying.html">
+                        <span class="lang-toggle" data-en="Stay Safe, Stay Smart Online" data-hi="[सुरक्षित रहें, ऑनलाइन स्मार्ट रहें]">Stay Safe, Stay Smart Online</span>
+                      </a>
+                    </h5>
+                 </span>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div
+                class="card rounded-5 border-0"
+                style="background-color: #e5b8f4 !important"
+              >
+                <img
+                  src="images/pos2.jpg"
+                  class="img-fluid card-img-top"
+                  alt="posts"
+                />
+                <div class="card-body">
+                  <span
+                    class="tooltip-parent"
+                    
+                  >
+                    <a
+                      href="MentalAbuse.html"
+                      class="text-uppercase text-primary fw-light"
+                      ><span
+                        class="lang-toggle"
+                        data-en="Mental Abuse"
+                        data-hi="[मानसिक शोषण]"
+                        >Mental Abuse</span
+                      ></a
+                    >
+                    <span class="tooltip-text">Emotional harm caused by manipulation, threats, or constant criticism</span>
+                   
+                    <h5 class="card-title mt-2">
+                      <a href="MentalAbuse.html"
+                        ><span
+                          class="lang-toggle"
+                          data-en="Empower Yourself, Know the Signs"
+                          data-hi="[खुद को सशक्त बनाएं, संकेतों को जानें]"
+                          >Empower Yourself, Know the Signs</span
+                        ></a
+                      >
+                    </h5>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div
+                class="card rounded-5 border-0"
+                style="background-color: #e5b8f4 !important"
+              >
+                <img
+                  src="images/pos3.jpg"
+                  class="img-fluid card-img-top"
+                  alt="posts"
+                />
+                <div class="card-body">
+                  <span class="tooltip-parent" >
+                                  <a href="WorkplaceHarrassment.html" class="text-uppercase text-primary fw-light"><span class="lang-toggle" data-en="Workplace Harassment" data-hi="[कार्यस्थल उत्पीड़न]">Workplace Harassment</span></a>
+                                  <span class="tooltip-text">Unwanted behaviour at work that makes someone feel unsafe or disrespected</span>
+                                  <h5 class="card-title mt-2"><a href="WorkplaceHarrassment.html"><span class="lang-toggle" data-en="Ensure respect" data-hi="[सम्मान सुनिश्चित करें]">Ensure respect</span></a></h5>
+                              </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div
+                class="card rounded-5 border-0"
+                style="background-color: #e5b8f4 !important"
+              >
+                <img
+                  src="images/pos5.jpg"
+                  class="img-fluid card-img-top"
+                  alt="posts"
+                />
+                <div class="card-body">
+                  <span
+                    class="tooltip-parent"
+                    
+                  >
+                    <a
+                      href="Stress.html"
+                      class="text-uppercase text-primary fw-light"
+                      ><span
+                        class="lang-toggle"
+                        data-en="Mind & Body Balance"
+                        data-hi="[मन और शरीर का संतुलन]"
+                        >Mind & Body Balance</span
+                      ></a
+                    >
+                    <span class="tooltip-text">Ways to manage stress and keep your mind and body healthy</span>
+                    <h5 class="card-title mt-2">
+                      <a href="Stress.html"
+                        ><span
+                          class="lang-toggle"
+                          data-en="Ease your mind with stress-relief tips"
+                          data-hi="[तनाव-मुक्ति युक्तियों से अपने मन को शांत करें]"
+                          >Ease your mind with stress-relief tips</span
+                        ></a
+                      >
+                    </h5>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div
+                class="card rounded-5 border-0"
+                style="background-color: #e5b8f4 !important"
+              >
+                <img
+                  src="images/pos7.jpg"
+                  class="img-fluid card-img-top"
+                  alt="posts"
+                />
+                <div class="card-body">
+                  <span
+                    class="tooltip-parent"
+                    
+                  >
+                    <a
+                      href="consent.html"
+                      class="text-uppercase text-primary fw-light"
+                      ><span
+                        class="lang-toggle"
+                        data-en="Consent and Boundaries"
+                        data-hi="[सहमति और सीमाएं]"
+                        >Consent and Boundaries</span
+                      ></a
+                    >
+                    <span class="tooltip-text">Understanding your right to say yes or no, and respecting personal limits</span>
+                    <h5 class="card-title mt-2">
+                      <a href="consent.html"
+                        ><span
+                          class="lang-toggle"
+                          data-en="Know, follow, protect"
+                          data-hi="[जानें, पालन करें, रक्षा करें]"
+                          >Know, follow, protect</span
+                        ></a
+                      >
+                    </h5>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div
+                class="card rounded-5 border-0"
+                style="background-color: #e5b8f4 !important"
+              >
+                <img
+                  src="images/pos8.jpg"
+                  class="img-fluid card-img-top"
+                  alt="posts"
+                />
+                <div class="card-body">
+                  <span
+                    class="tooltip-parent"
+                    
+                  >
+                    <a
+                      href="coupleTherapy.html"
+                      class="text-uppercase text-primary fw-light"
+                      ><span
+                        class="lang-toggle"
+                        data-en="Couples Therapy"
+                        data-hi="[युगल चिकित्सा]"
+                        >Couples Therapy</span
+                      ></a
+                    >
+                    <span class="tooltip-text">Guided sessions that help partners communicate and solve relationship issues</span>
+                    <h5 class="card-title mt-2">
+                      <a href="coupleTherapy.html"
+                        ><span
+                          class="lang-toggle"
+                          data-en="Reconnect & Strengthen Your Bond"
+                          data-hi="[अपने बंधन को फिर से जोड़ें और मजबूत करें]"
+                          >Reconnect & Strengthen Your Bond</span
+                        ></a
+                      >
+                    </h5>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="recent-videos"
+      class="padding-medium"
+      style="
+        background-image: url(images/videobackg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div class="container">
+        <h2
+          class="display-2 text-primary text-capitalize mb-5 text-center"
+          style="color: white !important"
+        >
+          <span
+            class="lang-toggle"
+            data-en="Inspiring Journeys"
+            data-hi="[प्रेरक यात्राएं]"
+            >Inspiring Journeys</span
+          >
+        </h2>
+        <div class="row flex-column">
+          <div class="col-md-12">
+            <div class="swiper product-large-slider rounded-4">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="video-player text-center position-relative">
+                    <img
+                      src="images/quote1.jpg"
+                      alt="product-large"
+                      class="img-fluid rounded-4 position-absolute top-0 start-0"
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="video-player text-center position-relative">
+                    <img
+                      src="images/quote2.jpg"
+                      alt="product-large"
+                      class="img-fluid rounded-4 position-absolute top-0 start-0"
+                    />
+                    <a
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-src="https://www.youtube.com/embed/W_tIumKa8VY"
+                      data-bs-target="#myModal"
+                      class="play-btn position-absolute top-0 bottom-0 start-0 end-0"
+                    >
+                      <svg width="70" height="70">
+                        <use xlink:href="#play"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="video-player text-center position-relative">
+                    <img
+                      src="images/quote3.jpg"
+                      alt="product-large"
+                      class="img-fluid rounded-4 position-absolute top-0 start-0"
+                    />
+                    <a
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-src="https://www.youtube.com/embed/W_tIumKa8VY"
+                      data-bs-target="#myModal"
+                      class="play-btn position-absolute top-0 bottom-0 start-0 end-0"
+                    >
+                      <svg width="70" height="70">
+                        <use xlink:href="#play"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="video-player text-center position-relative">
+                    <img
+                      src="images/quote4.jpg"
+                      alt="product-large"
+                      class="img-fluid rounded-4 position-absolute top-0 start-0"
+                    />
+                    <a
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-src="https://www.youtube.com/embed/W_tIumKa8VY"
+                      data-bs-target="#myModal"
+                      class="play-btn position-absolute top-0 bottom-0 start-0 end-0"
+                    >
+                      <svg width="70" height="70">
+                        <use xlink:href="#play"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="video-player text-center position-relative">
+                    <img
+                      src="images/quote5.jpg"
+                      alt="product-large"
+                      class="img-fluid rounded-4 position-absolute top-0 start-0"
+                    />
+                    <a
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-src="https://www.youtube.com/embed/W_tIumKa8VY"
+                      data-bs-target="#myModal"
+                      class="play-btn position-absolute top-0 bottom-0 start-0 end-0"
+                    >
+                      <svg width="70" height="70">
+                        <use xlink:href="#play"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="video-player text-center position-relative">
+                    <img
+                      src="images/quote5.jpg"
+                      alt="product-large"
+                      class="img-fluid rounded-4 position-absolute top-0 start-0"
+                    />
+                    <a
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-src="https://www.youtube.com/embed/W_tIumKa8VY"
+                      data-bs-target="#myModal"
+                      class="play-btn position-absolute top-0 bottom-0 start-0 end-0"
+                    >
+                      <svg width="70" height="70">
+                        <use xlink:href="#play"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="video-player text-center position-relative">
+                    <img
+                      src="images/quote1.jpg"
+                      alt="product-large"
+                      class="img-fluid rounded-4 position-absolute top-0 start-0"
+                    />
+                    <a
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-src="https://www.youtube.com/embed/W_tIumKa8VY"
+                      data-bs-target="#myModal"
+                      class="play-btn position-absolute top-0 bottom-0 start-0 end-0"
+                    >
+                      <svg width="70" height="70">
+                        <use xlink:href="#play"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 mt-3">
+            <div
+              thumbsSlider=""
+              class="swiper rounded-4 product-thumbnail-slider"
+            >
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="images/quote1.jpg"
+                    alt="image"
+                    class="thumb-image img-fluid rounded-4"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/quote2.jpg"
+                    alt="image"
+                    class="thumb-image img-fluid rounded-4"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/quote3.jpg"
+                    alt="image"
+                    class="thumb-image img-fluid rounded-4"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/quote4.jpg"
+                    alt="image"
+                    class="thumb-image img-fluid rounded-4"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/quote5.jpg"
+                    alt="image"
+                    class="thumb-image img-fluid rounded-4"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/quote5.jpg"
+                    alt="image"
+                    class="thumb-image img-fluid rounded-4"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/quote5.jpg"
+                    alt="image"
+                    class="thumb-image img-fluid rounded-4"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
 
-<script>
-  // Load navbar.html dynamically
-  fetch('navbar.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('navbar-container').innerHTML = data;
+    <script>
+      // Load navbar.html dynamically
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar-container").innerHTML = data;
 
-      // Highlight active nav link based on current page
-      const currentPage = window.location.pathname.split('/').pop();
-      const links = document.querySelectorAll('#navbar-container .nav-link');
-      links.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
-          link.classList.add('active');
+          // Highlight active nav link based on current page
+          const currentPage = window.location.pathname.split("/").pop();
+          const links = document.querySelectorAll(
+            "#navbar-container .nav-link"
+          );
+          links.forEach((link) => {
+            if (link.getAttribute("href") === currentPage) {
+              link.classList.add("active");
+            }
+          });
+        });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
         }
       });
-    });
+    </script>
 
-  // Navbar scroll effect
-  window.addEventListener("scroll", function() {
-  const navbar = document.getElementById("navbar");
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
-});
-</script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggle = document.getElementById("lang-toggle-checkbox");
+        const elements = document.querySelectorAll(".lang-toggle");
+        const placeholders = document.querySelectorAll(
+          ".lang-toggle-placeholder"
+        );
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const toggle = document.getElementById('lang-toggle-checkbox');
-  const elements = document.querySelectorAll('.lang-toggle');
-  const placeholders = document.querySelectorAll('.lang-toggle-placeholder');
-  
-  const titles = {
-    en: "Shashkth Stree - Issues",
-    hi: "सशक्त स्त्री - मुद्दे"
-  };
-  
-  function updateLanguage() {
-    const targetLang = toggle.checked ? 'hi' : 'en';
-    
-    document.title = titles[targetLang];
-    
-    elements.forEach(el => {
-      const text = el.getAttribute('data-' + targetLang);
-      if (text) {
-        if (targetLang === 'hi' && text.startsWith('[') && text.endsWith(']')) {
-          el.innerHTML = text.substring(1, text.length - 1);
-        } else {
-          el.innerHTML = text;
+        const titles = {
+          en: "Shashkth Stree - Issues",
+          hi: "सशक्त स्त्री - मुद्दे",
+        };
+
+        function updateLanguage() {
+          const targetLang = toggle.checked ? "hi" : "en";
+
+          document.title = titles[targetLang];
+
+          elements.forEach((el) => {
+            const text = el.getAttribute("data-" + targetLang);
+            if (text) {
+              if (
+                targetLang === "hi" &&
+                text.startsWith("[") &&
+                text.endsWith("]")
+              ) {
+                el.innerHTML = text.substring(1, text.length - 1);
+              } else {
+                el.innerHTML = text;
+              }
+            }
+          });
+
+          placeholders.forEach((el) => {
+            const text = el.getAttribute("data-" + targetLang);
+            if (text) {
+              let newText = text;
+              if (
+                targetLang === "hi" &&
+                text.startsWith("[") &&
+                text.endsWith("]")
+              ) {
+                newText = text.substring(1, text.length - 1);
+              }
+              el.setAttribute("placeholder", newText);
+            }
+          });
         }
-      }
-    });
-    
-    placeholders.forEach(el => {
-      const text = el.getAttribute('data-' + targetLang);
-      if (text) {
-        let newText = text;
-        if (targetLang === 'hi' && text.startsWith('[') && text.endsWith(']')) {
-          newText = text.substring(1, text.length - 1);
-        }
-        el.setAttribute('placeholder', newText);
-      }
-    });
-  }
-  
-  toggle.addEventListener('change', updateLanguage);
-  
-  // Set initial state
-  updateLanguage();
-});
-</script>
 
-<div id="footer-placeholder"></div>
-<script src="js/embed_footer.js" defer></script>
+        toggle.addEventListener("change", updateLanguage);
 
-</body>
+        // Set initial state
+        updateLanguage();
+      });
+    </script>
 
+    <div id="footer-placeholder"></div>
+    <script src="js/embed_footer.js" defer></script>
+  </body>
 </html>

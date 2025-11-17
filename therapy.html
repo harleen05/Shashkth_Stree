@@ -206,7 +206,56 @@ input:checked + .lang-slider:before {
     }
 }
 </style>
+<style>
+      /* Tooltip wrapper */
+.tooltip-parent {
+  position: relative;
+  display: inline-block;
+}
 
+/* Hidden tooltip box */
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 140%; /* position above the title */
+  left: 50%;
+  transform: translateX(-50%);
+  
+  background: rgb(205, 133, 221); /* your purple theme */
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  white-space: normal;
+  width: 220px;
+  text-align: center;
+  line-height: 1.4;
+  
+  z-index: 999;
+  transition: opacity 0.3s ease;
+}
+
+/* Tooltip arrow */
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgb(205, 133, 221) transparent transparent transparent;
+}
+
+/* Show the tooltip on hover */
+.tooltip-parent:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+    </style>
 </head>
 <body>
 
@@ -228,7 +277,12 @@ input:checked + .lang-slider:before {
                     <img class="img-div" src="images/img1.jpg" alt="Loneliness">
                 </div>
                 <div class="article-content">
+                  <div class="tooltip-parent">  
                     <h3><span class="lang-toggle" data-en="Healing-after-emotional-abuse" data-hi="[भावनात्मक-दुर्व्यv-हार-के-बाद-उपचार]">Healing-after-emotional-abuse</span></h3>
+                    <span class="tooltip-text">
+                      Recovering from emotional abuse by rebuilding confidence, boundaries, and self-worth.
+                    </span>
+                  </div>
                     <p><span class="lang-toggle" data-en="Emotional abuse is when someone uses words or actions to control, manipulate, or hurt you. It can leave you feeling powerless and unworthy. Recognizing it early is key to healing...." data-hi="[भावनात्मक दुर्व्यवहार तब होता है जब कोई आपको नियंत्रित करने, हेरफेर करने या चोट पहुँचाने के लिए शब्दों या कार्यों का उपयोग करता है। यह आपको शक्तिहीन और अयोग्य महसूस करा सकता है। इसे जल्दी पहचानना उपचार की कुंजी है....]">Emotional abuse is when someone uses words or actions to control, manipulate, or hurt you. It can leave you feeling powerless and unworthy. Recognizing it early is key to healing....</span></p>
                     <a href="https://www.talkspace.com/blog/healing-after-emotional-abuse/" class="read-more"><span class="lang-toggle" data-en="Read More" data-hi="[और पढ़ें]">Read More</span></a>
                     <button class="save-btn" data-article-id="healing-emotional-abuse">♡ Save</button>
@@ -240,7 +294,12 @@ input:checked + .lang-slider:before {
                     <img src="images/img2.jpg" alt="Resilience">
                 </div>
                 <div class="article-content">
+                  <div class="tooltip-parent">
                     <h3><span class="lang-toggle" data-en="Healing from Cyberbullying" data-hi="[साइबरबुलिंग से उबरना]">Healing from Cyberbullying</span></h3>
+                     <span class="tooltip-text">
+                        Healing from cyberbullying by regaining emotional safety, confidence, and digital boundaries.
+                     </span>
+                   </div>
                     <p><span class="lang-toggle" data-en="Cyberbullying involves using technology to harass, threaten, or manipulate someone. It can affect self-esteem and emotional well-being. Taking action and seeking help is crucial to stopping it...." data-hi="[साइबरबुलिंग में किसी को परेशान करने, धमकाने या हेरफेर करने के लिए तकनीक का उपयोग करना शामिल है। यह आत्म-सम्मान और भावनात्मक कल्याण को प्रभावित कर सकता है। इसे रोकने के लिए कार्रवाई करना और मदद मांगना महत्वपूर्ण है....]">Cyberbullying involves using technology to harass, threaten, or manipulate someone. It can affect self-esteem and emotional well-being. Taking action and seeking help is crucial to stopping it....</span></p>
                     <a href="https://www.verywellhealth.com/cyberbullying-effects-and-what-to-do-5220584" class="read-more"><span class="lang-toggle" data-en="Read More" data-hi="[और पढ़ें]">Read More</span></a>
                     <button class="save-btn" data-article-id="healing-cyberbullying">♡ Save</button>
@@ -252,7 +311,12 @@ input:checked + .lang-slider:before {
                     <img src="images/img3.jpg" alt="Resilience">
                 </div>
                 <div class="article-content">
+                  <div class="tooltip-parent">
                     <h3><span class="lang-toggle" data-en="Understanding Consent and Boundaries" data-hi="[सहमति और सीमाओं को समझना]">Understanding Consent and Boundaries</span></h3>
+                    <span class="tooltip-text">
+                        Learning how consent and boundaries help build healthy, respectful relationships.
+                    </span>
+                  </div>
                     <p><span class="lang-toggle" data-en="Consent is about giving permission freely and clearly. Boundaries ensure respect in relationships, helping people feel safe and valued. Healthy communication is key to maintaining them...." data-hi="[सहमति स्वतंत्र रूप से और स्पष्ट रूप से अनुमति देने के बारे में है। सीमाएं रिश्तों में सम्मान सुनिश्चित करती हैं, जिससे लोगों को सुरक्षित और मूल्यवान महसूस करने में मदद मिलती है। स्वस्थ संचार उन्हें बनाए रखने की कुंजी है....]">Consent is about giving permission freely and clearly. Boundaries ensure respect in relationships, helping people feel safe and valued. Healthy communication is key to maintaining them....</span></p>
                     <a href="https://www.euroschoolindia.com/blogs/respect-and-consent-understanding-personal-boundaries/" class="read-more"><span class="lang-toggle" data-en="Read More" data-hi="[और पढ़ें]">Read More</span></a>
                     <button class="save-btn" data-article-id="understanding-consent-boundaries">♡ Save</button>
@@ -263,7 +327,12 @@ input:checked + .lang-slider:before {
                     <img src="images/img4.jpg" alt="Resilience">
                 </div>
                 <div class="article-content">
+                  <div class="tooltip-parent">
                     <h3><span class="lang-toggle" data-en="Getting Over Workplace Harassment" data-hi="[कार्यस्थल उत्पीड़न से उबरना]">Getting Over Workplace Harassment</span></h3>
+                    <span class="tooltip-text">
+                        Understanding harassment signs, reporting it, and rebuilding a sense of safety at work.
+                    </span>
+                  </div>
                     <p><span class="lang-toggle" data-en="Workplace harassment includes unwelcome behavior that creates a hostile or intimidating environment. Recognizing it and reporting it are important steps in ensuring a respectful workplace...." data-hi="[कार्यस्थल उत्पीड़न में अवांछित व्यवहार शामिल है जो एक शत्रुपूर्ण या डराने वाला वातावरण बनाता है। इसे पहचानना और इसकी रिपोर्ट करना एक सम्मानजनक कार्यस्थल सुनिश्चित करने में महत्वपूर्ण कदम हैं....]">Workplace harassment includes unwelcome behavior that creates a hostile or intimidating environment. Recognizing it and reporting it are important steps in ensuring a respectful workplace....</span></p>
                     <a href="https://www.tammydunnett.com/conquerconflict/recovering-from-workplace-bullying--ee00a" class="read-more"><span class="lang-toggle" data-en="Read More" data-hi="[और पढ़ें]">Read More</span></a>
                     <button class="save-btn" data-article-id="workplace-harassment">♡ Save</button>
@@ -274,8 +343,13 @@ input:checked + .lang-slider:before {
                     <img src="images/img5.jpg" alt="Resilience">
                 </div>
                 <div class="article-content">
+                  <div class="tooltip-parent">
                     <h3><span class="lang-toggle" data-en="Managing Stress for Better Health" data-hi="[बेहतर स्वास्थ्य के लिए तनाव का प्रबंधन]">Managing Stress for Better Health</span>
                     </h3>
+                    <span class="tooltip-text">
+                        Understanding how stress affects the body and ways to reduce it for improved well-being.
+                    </span>
+                  </div>
                     <p><span class="lang-toggle" data-en="Chronic stress can take a toll on both your mind and body, leading to health issues like anxiety, fatigue, or heart disease. Managing stress through relaxation and support is vital for overall well-being...." data-hi="[पुराना तनाव आपके दिमाग और शरीर दोनों पर भारी पड़ सकता है, जिससे चिंता, थकान या हृदय रोग जैसी स्वास्थ्य समस्याएं हो सकती हैं। विश्राम और समर्थन के माध्यम से तनाव का प्रबंधन समग्र कल्याण के लिए महत्वपूर्ण है....]">Chronic stress can take a toll on both your mind and body, leading to health issues like anxiety, fatigue, or heart disease. Managing stress through relaxation and support is vital for overall well-being....</span></p>
                     <a href="https://www.psychologytoday.com/us/blog/click-here-happiness/202105/stress-relief-101-science-based-guide?msockid=2ad9108bdb8867970b9105d2da7a665d" class="read-more"><span class="lang-toggle" data-en="Read More" data-hi="[और पढ़ें]">Read More</span></a>
                     <button class="save-btn" data-article-id="managing-stress">♡ Save</button>
@@ -286,8 +360,13 @@ input:checked + .lang-slider:before {
                     <img src="images/img6.jpg" alt="Resilience">
                 </div>
                 <div class="article-content">
+                  <div class="tooltip-parent">
                     <h3><span class="lang-toggle" data-en="Healing Through Couples Therapy" data-hi="[कपल्स थेरेपी के माध्यम से उपचार]">Healing Through Couples Therapy</span>
                     </h3>
+                    <span class="tooltip-text">
+                        Couples therapy helps partners resolve conflict and rebuild connection in relationships.
+                    </span>
+                  </div>
                     <p><span class="lang-toggle" data-en="Couples therapy helps partners navigate conflicts and improve communication. It provides a safe space for both individuals to express concerns and work together toward a healthier relationship..." data-hi="[कपल्स थेरेपी भागीदारों को संघर्षों को नेविगेट करने और संचार में सुधार करने में मदद करती है। यह दोनों व्यक्तियों को चिंताओं को व्यक्त करने और एक स्वस्थ रिश्ते की दिशा में एक साथ काम करने के लिए एक सुरक्षित स्थान प्रदान करता है...]" >Couples therapy helps partners navigate conflicts and improve communication. It provides a safe space for both individuals to express concerns and work together toward a healthier relationship...</span></p>
                     <a href="https://www.everydayhealth.com/emotional-health/couples-therapy/guide/" class="read-more"><span class="lang-toggle" data-en="Read More" data-hi="[और पढ़ें]">Read More</span></a>
                     <button class="save-btn" data-article-id="couples-therapy">♡ Save</button>
